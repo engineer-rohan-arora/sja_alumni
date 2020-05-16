@@ -91,16 +91,18 @@ class _membership extends State<membership> {
                         SizedBox(
                           width: 8,
                         ),
-                        Padding(
-                          padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 10),
-                          child: Container(
-                            color: Colors.white,
-                            width: 100, // do it in both Container
-                            child: TextField(
-                                style: TextStyle(
-                                    fontSize: 28.0,
-                                    color: Colors.black
-                                )
+                        Flexible(
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 10),
+                            child: Container(
+                              color: Colors.white,
+                              width: 100, // do it in both Container
+                              child: TextField(
+                                  style: TextStyle(
+                                      fontSize: 28.0,
+                                      color: Colors.black
+                                  )
+                              ),
                             ),
                           ),
                         ),

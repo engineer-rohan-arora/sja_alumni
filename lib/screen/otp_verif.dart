@@ -46,16 +46,9 @@ class _otp_verif extends State<otp_verif> {
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                Container(
-                  width: double.infinity,
-                  height: 400,
-                  decoration: BoxDecoration(
-                    image: DecorationImage(
-                      fit: BoxFit.fill,
-                      image: AssetImage('assets/pngs/4.png'),
-                    ),
-                  ),
-                ),
+
+                Image(image: AssetImage('assets/pngs/4.png'),),
+
                 SizedBox(
                   height: 8,
                 ),
@@ -63,29 +56,31 @@ class _otp_verif extends State<otp_verif> {
                   'Please enter the OTP sent to your registered mobile no. XXXXX-12345',
                   textAlign: TextAlign.center,
                   style: TextStyle(
-                    fontSize: 32,
-                    fontWeight: FontWeight.bold,
+                    fontSize: 26,
+                    fontWeight: FontWeight.w500,
                   ),
                 ),
                 Padding(
                   padding:
-                  const EdgeInsets.symmetric(vertical: 2, horizontal: 140),
+                  const EdgeInsets.symmetric(vertical: 2, horizontal: 10),
                   child: Container(
                     width: 130,
                     color: Color(0xff3954A5),
                     child: Row(
                       //mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Padding(
-                          padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 10),
-                          child: Container(
-                            color: Colors.white,
-                            width: 110, // do it in both Container
-                            child: TextField(
-                                style: TextStyle(
-                                    fontSize: 24.0,
-                                    color: Colors.black
-                                )
+                        Flexible(
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 10),
+                            child: Container(
+                              color: Colors.white,
+                              width: 110, // do it in both Container
+                              child: TextField(
+                                  style: TextStyle(
+                                      fontSize: 24.0,
+                                      color: Colors.black
+                                  )
+                              ),
                             ),
                           ),
                         ),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sjaalumniapp/resources/svg_imgs.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:sjaalumniapp/screen/address_updt.dart';
 import 'dart:io';
 
 import 'package:sjaalumniapp/screen/main_screen.dart';
@@ -111,7 +112,7 @@ class _pic_up extends State<pic_up> {
                   ),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal:48),
-                  child: sample1(txt: 'Upload', onpresses: (){Navigator.pushNamed(context, HomeScreen.id); }),
+                  child: sample1(txt: 'Upload', onpresses: (){Navigator.pushNamed(context, address_updt.id); }),
                 ),
               ],
             ),
