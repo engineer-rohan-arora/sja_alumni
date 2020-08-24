@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "491518450458",
+    "firebase_url": "https://sja-alumni.firebaseio.com",
+    "project_id": "sja-alumni",
+    "storage_bucket": "sja-alumni.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:491518450458:android:219949b9e9d0eeac0aeaa3",
+        "android_client_info": {
+          "package_name": "com.example.sja_alumni"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "491518450458-uhivc74p6n3i270uvi3nhg1vq4mmdjf7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCVJmMK6xJ7p7Lq4b1qamJifekjD4M7hSE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "491518450458-uhivc74p6n3i270uvi3nhg1vq4mmdjf7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

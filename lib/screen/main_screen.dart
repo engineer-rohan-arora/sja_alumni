@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:sja_alumni/resources/svg_imgs.dart';
 import 'package:sja_alumni/screen/membership.dart';
 import 'package:sja_alumni/frame_44.dart';
-
-
+import 'package:sja_alumni/screen/login_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   static const String id = 'home_screen';
@@ -75,7 +74,7 @@ class _HomeScreen extends State<HomeScreen> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    sample(txt: 'Yes',onpresses: (){Navigator.pushNamed(context, membership.id); }),
+                    sample(txt: 'Yes',onpresses: (){Navigator.pushNamed(context, LoginScreen.id); }),
                     SizedBox(width: 20,),
                     sample(txt: 'No',onpresses: (){Navigator.push(context, MaterialPageRoute(builder:(context)=>GOI()));
                     }),
