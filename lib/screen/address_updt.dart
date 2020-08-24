@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:sjaalumniapp/resources/svg_imgs.dart';
+import 'package:sja_alumni/resources/svg_imgs.dart';
 import 'package:image_picker/image_picker.dart';
 import 'dart:io';
 
-import 'package:sjaalumniapp/screen/main_screen.dart';
+import 'package:sja_alumni/screen/main_screen.dart';
 
 // ignore: camel_case_types
 class address_updt extends StatefulWidget {

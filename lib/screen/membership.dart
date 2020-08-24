@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:sjaalumniapp/resources/svg_imgs.dart';
-import 'package:sjaalumniapp/screen/otp_verif.dart';
+import 'package:sja_alumni/resources/svg_imgs.dart';
+import 'package:sja_alumni/screen/otp_verif.dart';
 
 // ignore: camel_case_types
 class membership extends StatefulWidget {

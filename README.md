@@ -1,6 +1,6 @@
-# sjaalumniapp
+# sja_alumni
 
-alumni app for st. joseph academy dehradun
+A new Flutter application.
 
 ## Getting Started
 

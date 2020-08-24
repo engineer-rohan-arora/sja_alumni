@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:sjaalumniapp/screen/address_updt.dart';
-import 'package:sjaalumniapp/screen/main_screen.dart';
-import 'package:sjaalumniapp/screen/membership.dart';
-import 'package:sjaalumniapp/screen/otp_verif.dart';
-
-import 'package:sjaalumniapp/screen/pic_up.dart';
+import 'package:sja_alumni/screen/address_updt.dart';
+import 'package:sja_alumni/screen/main_screen.dart';
+import 'package:sja_alumni/screen/membership.dart';
+import 'package:sja_alumni/screen/otp_verif.dart';
+import 'package:sja_alumni/insider.dart';
+import 'package:sja_alumni/screen/pic_up.dart';
 
 void main() => runApp(MyApp());
 class MyApp extends StatelessWidget {
@@ -17,6 +17,8 @@ class MyApp extends StatelessWidget {
           'otp_verif' : (context) => otp_verif(),
           'pic_up' : (context) => pic_up(),
           'address_updt' : (context) => address_updt(),
+          'address_updt' : (context) => address_updt(),
+
         },
         home: HomeScreen());
   }

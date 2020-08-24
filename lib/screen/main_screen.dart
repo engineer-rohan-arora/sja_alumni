@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:sjaalumniapp/resources/svg_imgs.dart';
-import 'package:sjaalumniapp/screen/membership.dart';
-
+import 'package:sja_alumni/resources/svg_imgs.dart';
+import 'package:sja_alumni/screen/membership.dart';
+import 'package:sja_alumni/frame_44.dart';
 
 
 
@@ -77,10 +77,10 @@ class _HomeScreen extends State<HomeScreen> {
                   children: [
                     sample(txt: 'Yes',onpresses: (){Navigator.pushNamed(context, membership.id); }),
                     SizedBox(width: 20,),
-                    sample(txt: 'No',onpresses: (){Navigator.pushNamed(context, membership.id); }),
+                    sample(txt: 'No',onpresses: (){Navigator.push(context, MaterialPageRoute(builder:(context)=>GOI()));
+                    }),
                   ],
                 )
-                
 
 
                 ],

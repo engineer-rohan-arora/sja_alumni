@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:sjaalumniapp/resources/svg_imgs.dart';
-import 'package:sjaalumniapp/main.dart';
-import 'package:sjaalumniapp/screen/pic_up.dart';
+import 'package:sja_alumni/resources/svg_imgs.dart';
+import 'package:sja_alumni/main.dart';
+import 'package:sja_alumni/screen/pic_up.dart';
 // ignore: camel_case_types
 class otp_verif extends StatefulWidget {
   static const String id = 'otp_verif';
