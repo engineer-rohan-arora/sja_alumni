@@ -1,136 +1,125 @@
-
 import 'package:flutter/material.dart';
 import 'package:sja_alumni/frame_38.dart';
+import 'package:sja_alumni/resources/svg_imgs.dart';
+import 'package:image_picker/image_picker.dart';
+import 'package:sja_alumni/screen/address_updt.dart';
+import 'dart:io';
 
+import 'package:sja_alumni/screen/main_screen.dart';
 
-class personal_info extends StatelessWidget {
+// ignore: camel_case_types
+class personal_info extends StatefulWidget {
+  static const String id = 'pic_up';
+  @override
+  _pic_up createState() => _pic_up();
+}
+
+// ignore: camel_case_types
+class _pic_up extends State<personal_info> {
+  final controller = ScrollController();
+  double offset = 0;
+  int currentPage = 0;
+  GlobalKey bottomNavigationKey = GlobalKey();
+
+  File imageURI;
+
+  Future getImageFromCamera() async {
+
+    var image = await ImagePicker.pickImage(source: ImageSource.camera);
+
+    setState(() {
+      imageURI = image;
+    });
+  }
+
+  Future getImageFromGallery() async {
+
+    var image = await ImagePicker.pickImage(source: ImageSource.gallery);
+
+    setState(() {
+      imageURI = image;
+    });
+  }
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    controller.addListener(onScroll);
+  }
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    controller.dispose();
+    super.dispose();
+  }
+
+  void onScroll() {
+    setState(() {
+      offset = (controller.hasClients) ? controller.offset : 0;
+    });
+  }
+
+  final String assetName = 'assets/svgs/4.svg';
+
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: <Widget>[
-        Container(
-          decoration: BoxDecoration(
-            gradient: LinearGradient(
-                colors: [Colors.deepPurple,Colors.white],
-                begin: const FractionalOffset(0.0, 0.0),
-                end: const FractionalOffset(0.0, 0.4),
-                stops: [0.0,1.0],
-                tileMode: TileMode.clamp
+    return MaterialApp(
+      home: Scaffold(
+        body: SafeArea(
+          child: Container(
+            decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  colors: [Color(0xFF041DAF),Color(0xFF00DAAA)],
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                )
             ),
-          ),
-          child: Column(
-            children: <Widget>[
-              Center(
-                child: Container(
-                  width: MediaQuery.of(context).size.width/2,
-                  height: MediaQuery.of(context).size.height/3,
-                  child:Image.asset("assests/Asset2.png",),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                SizedBox(
+                  height: 8,
                 ),
-              ),
-              Container(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-//                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: <Widget>[
-                    Text('Personal Info',style: TextStyle(color: Colors.black,fontSize: 23,decoration: TextDecoration.none ),),
-//                    RaisedButton(
-//                      onPressed: (){},
-//                      child: Text('Upadte',style: TextStyle(color: Colors.white),),
-//                      color: Colors.green,
-//                    )
-                    ButtonTheme(
-                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0),),
-                      child: RaisedButton(
-                        onPressed: () {
-//                          Navigator.push(context, MaterialPageRoute(builder: (context)=>personal_info()));
-                        },
-                        child: Text("Update",style: TextStyle(color: Colors.white,fontSize: 20),),
-                      ),
-                    ),
-                  ],
+                Flexible(child: Image(image: AssetImage('assets/pngs/3.png'))),
+                SizedBox(
+                  height: 8,
                 ),
-              ),
-              Card(
-                elevation: 0,
-                child: Form(
+                Flexible(
                   child: Padding(
-                    padding: const EdgeInsets.all(16.0),
-                    child: Column(
-                      children: <Widget>[
-                        SizedBox(
-                          height: 10,
-                        ),
-                        TextFormField(
-                          decoration: InputDecoration(
-                            hintText: 'xyz',
-                                labelText: 'Name',
-//                            prefixIcon: Icon(Icons.calendar_today),
-                          ),
-                        ),
-                        SizedBox(height: 10,),
-                        TextFormField(
-                          decoration: InputDecoration(
-                            hintText: '20XX',
-                            labelText: 'Year of Passout',
-                          ),
-                        ),
-                        SizedBox(height: 10,),
-                        TextFormField(
-                          decoration: InputDecoration(
-                            hintText: '17/09/XXXX',
-                            labelText: 'Date of Birth',
-                          ),
-                        ),
-                        SizedBox(height: 10,),
-                        TextFormField(
-                          decoration: InputDecoration(
-                            hintText: '20XX',
-                            labelText: 'Date of Anniversary',
-                          ),
-                        ),
-                        SizedBox(
-                          height: 20,
-                        ),
-//                        Padding(
-//                          padding: const EdgeInsets.all(16.0),
-//                          child: ButtonTheme(
-//                            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0),),
-//                            minWidth: 160,
-//                            height: 40,
-//                            child: RaisedButton(
-//                              onPressed: ()
-//                              {
-//                                Navigator.push(context, MaterialPageRoute(builder: (context)=>Address()));
-//                              },
-//                              textColor: Colors.white,
-//                              child: Text('Next',style: TextStyle(fontSize: 20),),
-//
-//                            ),
-//                          ),
-//                        ),
-                        Container(
-                            child: ButtonTheme(
-                              minWidth: 160,
-                              height: 40,
-                              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
-                              child: RaisedButton(
-                                onPressed: (){
-                                  Navigator.push(context, MaterialPageRoute(builder: (context)=>Address()));
-                                },
-                                color: Colors.blue,
-                                child: Text('Next',style: TextStyle(color: Colors.white),),
-                              ),
-                            )
-                        )
-                      ],
-                    ),
+                      padding: const EdgeInsets.symmetric(horizontal:48),
+                      child: Container(
+                          color: Colors.white,
+                          height: 3200,
+                          width: 408,
+                          child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: <Widget>[
+                                Flexible(
+                                  child: imageURI == null
+                                      ? Text('No image selected.')
+                                      : Image.file(imageURI, width: 300, height: 200, fit: BoxFit.cover),
+                                ),
+
+                                IconButton(
+                                  icon: Icon(Icons.add_a_photo),
+                                  onPressed: () => getImageFromGallery(),
+                                ),
+
+                              ]))
                   ),
                 ),
-              )
-            ],
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal:48),
+                  child: sample1(txt: 'Upload', onpresses: (){Navigator.push(context, MaterialPageRoute(builder: (context)=>Address()));}),
+                ),
+              ],
+            ),
           ),
         ),
-      ],
+      ),
     );
   }
 }

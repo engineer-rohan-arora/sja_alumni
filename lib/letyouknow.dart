@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:sja_alumni/Frame_30.dart';
 import 'package:sja_alumni/frame_38.dart';
 import 'package:sja_alumni/resources/svg_imgs.dart';
 import 'package:image_picker/image_picker.dart';
@@ -9,14 +8,14 @@ import 'dart:io';
 import 'package:sja_alumni/screen/main_screen.dart';
 
 // ignore: camel_case_types
-class LeaveCertificate extends StatefulWidget {
+class LUK extends StatefulWidget {
   static const String id = 'pic_up';
   @override
   _pic_up createState() => _pic_up();
 }
 
 // ignore: camel_case_types
-class _pic_up extends State<LeaveCertificate> {
+class _pic_up extends State<LUK> {
   final controller = ScrollController();
   double offset = 0;
   int currentPage = 0;
@@ -84,44 +83,11 @@ class _pic_up extends State<LeaveCertificate> {
                 SizedBox(
                   height: 8,
                 ),
-                Flexible(child: Image(image: AssetImage('assets/id.png'))),
+                Flexible(child: Image(image: AssetImage('assets/ty.png'))),
                 SizedBox(
                   height: 8,
                 ),
-                Flexible(
-                  child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal:48),
-                      child: Container(
-                          color: Colors.white,
-                          height: 3200,
-                          width: 408,
-                          child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: <Widget>[
-                                Container(
-                                  child: Text('School leaving Certificate',style:TextStyle(fontSize: 26,decoration: TextDecoration.none,color: Colors.black,fontWeight: FontWeight.normal),),
-                                ),
-                                SizedBox(
-                                  height: 20,
-                                ),
-                                Flexible(
-                                  child: imageURI == null
-                                      ? Text('No image selected.')
-                                      : Image.file(imageURI, width: 300, height: 200, fit: BoxFit.cover),
-                                ),
-
-                                IconButton(
-                                  icon: Icon(Icons.add_a_photo),
-                                  onPressed: () => getImageFromGallery(),
-                                ),
-
-                              ]))
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal:48),
-                  child: sample1(txt: 'Upload', onpresses: (){Navigator.push(context, MaterialPageRoute(builder: (context)=>IDGOI()));}),
-                ),
+                Flexible(child: Image(image: AssetImage('assets/ltn.png'))),
               ],
             ),
           ),

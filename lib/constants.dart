@@ -21,17 +21,17 @@ const kTextFieldDecoration = InputDecoration(
     borderRadius: BorderRadius.all(Radius.circular(32.0)),
   ),
   enabledBorder: OutlineInputBorder(
-    borderSide: BorderSide(color: Colors.white, width: 2.0),
+    borderSide: BorderSide(color: Colors.black, width: 2.0),
     borderRadius: BorderRadius.all(Radius.circular(32.0)),
   ),
   focusedBorder: OutlineInputBorder(
-    borderSide: BorderSide(color: Colors.white, width: 4.0),
+    borderSide: BorderSide(color: Colors.black, width: 4.0),
     borderRadius: BorderRadius.all(Radius.circular(32.0)),
   ),
 );
 
 const kMessageContainerDecoration = BoxDecoration(
   border: Border(
-    top: BorderSide(color: Color(0xFF812972), width: 2.0),
+    top: BorderSide(color: Color(0xFF000), width: 2.0),
   ),
 );

@@ -22,7 +22,7 @@ class ContactEmail extends StatelessWidget {
                 child: Container(
                   width: MediaQuery.of(context).size.width/1.5,
                   height: MediaQuery.of(context).size.height/2,
-                  child: Image.asset('assests/Asset3_cont.png'),
+                  child: Image.asset('assets/Asset3_cont.png'),
                 ),
               ),
               Container(

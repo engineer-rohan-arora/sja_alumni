@@ -25,7 +25,7 @@ class Address extends StatelessWidget {
                 child: Container(
                   width: MediaQuery.of(context).size.width/2,
                   height: MediaQuery.of(context).size.height/3,
-                  child: Image.asset("assests/Asset2.png"),
+                  child: Image.asset("assets/Asset2.png"),
                 ),
               ),
               Container(

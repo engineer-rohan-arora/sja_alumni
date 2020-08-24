@@ -1,6 +1,9 @@
-import 'package:flutter/material.dart';
 
-import 'frame_27.dart';
+import 'package:flutter/material.dart';
+import 'package:sja_alumni/frame_27.dart';
+import 'package:sja_alumni/frame_38.dart';
+
+
 class GOI extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -9,9 +12,9 @@ class GOI extends StatelessWidget {
         Container(
           decoration: BoxDecoration(
             gradient: LinearGradient(
-                colors: [Colors.blueAccent,Colors.lightBlueAccent],
+                colors: [Colors.deepPurple,Colors.white],
                 begin: const FractionalOffset(0.0, 0.0),
-                end: const FractionalOffset(0.5, 1.2),
+                end: const FractionalOffset(0.0, 0.4),
                 stops: [0.0,1.0],
                 tileMode: TileMode.clamp
             ),
@@ -19,69 +22,114 @@ class GOI extends StatelessWidget {
           child: Column(
             children: <Widget>[
               Center(
-                child:Column(
+                child: Container(
+                  width: MediaQuery.of(context).size.width/2,
+                  height: MediaQuery.of(context).size.height/3,
+                  child:Image.asset("assets/Asset2.png",),
+                ),
+              ),
+              Container(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+//                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: <Widget>[
-                    Center(
-                      child: Container(
-                        width:MediaQuery.of(context).size.width/4 ,
-                        height: MediaQuery.of(context).size.height/2,
-                        child:Image.asset("assests/Asset1.png"),
-                      ),
-                    ),
-                    Center(
-                      child: Container(
-                        width:MediaQuery.of(context).size.width/1.2,
-                        height: MediaQuery.of(context).size.height/4,
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius:BorderRadius.circular(20),
-                          border: Border.all(color: Colors.black12,width: 5),
-                        ),
-                        child: Column(
-                          children: <Widget>[
-                            Container(
-                              child: Icon(Icons.camera_enhance,size: 70,color: Colors.black12,),
-                            ),
-                            SizedBox(
-                              height: 10,
-                            ),
-                            Container(
-                              child: Text('Browse',textAlign: TextAlign.center,style: TextStyle(color: Colors.blue,decoration: TextDecoration.underline,decorationColor: Colors.blue,fontSize: 22),),
-                            ),
-                            SizedBox(
-                              height: 10,
-                            ),
-                            Container(
-                              child: Text('Photo to Upload',style:TextStyle(fontSize: 16,decoration: TextDecoration.none,color: Colors.black,fontWeight: FontWeight.normal),),
-                            ),
-                          ],
-                        )
-                      ),
-                    ),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(20.0),
-                      child: ButtonTheme(
-                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
-                        minWidth: MediaQuery.of(context).size.width/2,
-                        height: MediaQuery.of(context).size.height/15,
-                        child: RaisedButton(
-                          onPressed: () {
-                            Navigator.push(context, MaterialPageRoute(builder: (context)=>personal_info()));
-                          },
-                          child: Text("Submit",style: TextStyle(color: Colors.white,fontSize: 20),),
-                          color: Colors.blue,
-                        ),
+                    Text('Personal Info',style: TextStyle(color: Colors.black,fontSize: 23,decoration: TextDecoration.none ),),
+//                    RaisedButton(
+//                      onPressed: (){},
+//                      child: Text('Upadte',style: TextStyle(color: Colors.white),),
+//                      color: Colors.green,
+//                    )
+                    ButtonTheme(
+                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0),),
+                      child: RaisedButton(
+                        onPressed: () {
+//                          Navigator.push(context, MaterialPageRoute(builder: (context)=>personal_info()));
+                        },
+                        child: Text("Update",style: TextStyle(color: Colors.white,fontSize: 20),),
                       ),
                     ),
                   ],
-                )
+                ),
+              ),
+              Card(
+                elevation: 0,
+                child: Form(
+                  child: Padding(
+                    padding: const EdgeInsets.all(16.0),
+                    child: Column(
+                      children: <Widget>[
+                        SizedBox(
+                          height: 10,
+                        ),
+                        TextFormField(
+                          decoration: InputDecoration(
+                            hintText: 'xyz',
+                            labelText: 'Name',
+//                            prefixIcon: Icon(Icons.calendar_today),
+                          ),
+                        ),
+                        SizedBox(height: 10,),
+                        TextFormField(
+                          decoration: InputDecoration(
+                            hintText: '20XX',
+                            labelText: 'Year of Passout',
+                          ),
+                        ),
+                        SizedBox(height: 10,),
+                        TextFormField(
+                          decoration: InputDecoration(
+                            hintText: '17/09/XXXX',
+                            labelText: 'Date of Birth',
+                          ),
+                        ),
+                        SizedBox(height: 10,),
+                        TextFormField(
+                          decoration: InputDecoration(
+                            hintText: '20XX',
+                            labelText: 'Date of Anniversary',
+                          ),
+                        ),
+                        SizedBox(
+                          height: 20,
+                        ),
+//                        Padding(
+//                          padding: const EdgeInsets.all(16.0),
+//                          child: ButtonTheme(
+//                            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0),),
+//                            minWidth: 160,
+//                            height: 40,
+//                            child: RaisedButton(
+//                              onPressed: ()
+//                              {
+//                                Navigator.push(context, MaterialPageRoute(builder: (context)=>Address()));
+//                              },
+//                              textColor: Colors.white,
+//                              child: Text('Next',style: TextStyle(fontSize: 20),),
+//
+//                            ),
+//                          ),
+//                        ),
+                        Container(
+                            child: ButtonTheme(
+                              minWidth: 160,
+                              height: 40,
+                              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
+                              child: RaisedButton(
+                                onPressed: (){
+                                  Navigator.push(context, MaterialPageRoute(builder: (context)=>personal_info()));
+                                },
+                                color: Colors.blue,
+                                child: Text('Next',style: TextStyle(color: Colors.white),),
+                              ),
+                            )
+                        )
+                      ],
+                    ),
+                  ),
+                ),
               )
             ],
           ),
-
         ),
       ],
     );
