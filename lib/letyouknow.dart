@@ -13,55 +13,8 @@ class LUK extends StatefulWidget {
   @override
   _pic_up createState() => _pic_up();
 }
-
 // ignore: camel_case_types
 class _pic_up extends State<LUK> {
-  final controller = ScrollController();
-  double offset = 0;
-  int currentPage = 0;
-  GlobalKey bottomNavigationKey = GlobalKey();
-
-  File imageURI;
-
-  Future getImageFromCamera() async {
-
-    var image = await ImagePicker.pickImage(source: ImageSource.camera);
-
-    setState(() {
-      imageURI = image;
-    });
-  }
-
-  Future getImageFromGallery() async {
-
-    var image = await ImagePicker.pickImage(source: ImageSource.gallery);
-
-    setState(() {
-      imageURI = image;
-    });
-  }
-
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-    controller.addListener(onScroll);
-  }
-
-  @override
-  void dispose() {
-    // TODO: implement dispose
-    controller.dispose();
-    super.dispose();
-  }
-
-  void onScroll() {
-    setState(() {
-      offset = (controller.hasClients) ? controller.offset : 0;
-    });
-  }
-
-  final String assetName = 'assets/svgs/4.svg';
 
   @override
   Widget build(BuildContext context) {

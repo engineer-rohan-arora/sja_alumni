@@ -11,7 +11,21 @@ import 'package:sja_alumni/screen/main_screen.dart';
 
 // ignore: camel_case_types
 class LeaveCertificate extends StatefulWidget {
-  static const String id = 'pic_up';
+  final String name0;
+  final String yepo;
+  final String datoa;
+  final String datob ;
+  final String mail ;
+  final String num ;
+  LeaveCertificate(
+      {@required this.name0,
+        @required this.yepo,
+        @required this.datob,
+        @required this.num,
+        @required this.mail,
+        @required this.datoa});
+
+
   @override
   _pic_up createState() => _pic_up();
 }
@@ -37,7 +51,7 @@ class _pic_up extends State<LeaveCertificate> {
 
   Future uploadPic(BuildContext context) async{
     String fileName = basename(imageURI.path);
-    String ab = 'email-id of the user';
+    String ab = this.widget.mail;
     String a= ab+ '--School leaving Certificate.jpg';
     StorageReference firebaseStorageRef = FirebaseStorage.instance.ref().child(a);
     StorageUploadTask uploadTask = firebaseStorageRef.putFile(imageURI);
@@ -157,7 +171,14 @@ class _pic_up extends State<LeaveCertificate> {
                 ),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal:48),
-                  child: sample1(txt: 'Next', onpresses: (){Navigator.push(context, MaterialPageRoute(builder: (context)=>IDGOI()));}),
+                  child: sample1(txt: 'Next', onpresses: (){Navigator.push(context, MaterialPageRoute(builder: (context)=>IDGOI(
+                    name0: this.widget.name0,
+                    yepo: this.widget.yepo,
+                    datob: this.widget.datob,
+                    datoa: this.widget.datoa,
+                    mail: this.widget.mail,
+                    num: this.widget.num,
+                  )));}),
                 ),
               ],
             ),

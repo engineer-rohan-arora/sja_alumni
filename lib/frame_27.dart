@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sja_alumni/frame_38.dart';
+import 'package:sja_alumni/frame_31.dart';
 import 'package:sja_alumni/resources/svg_imgs.dart';
 import 'package:image_picker/image_picker.dart';
 import 'dart:io';
@@ -8,7 +8,21 @@ import 'package:firebase_storage/firebase_storage.dart';
 
 // ignore: camel_case_types
 class personal_info extends StatefulWidget {
-  static const String id = 'pic_up';
+  final String name0;
+  final String yepo;
+  final String datoa;
+  final String datob ;
+  final String mail ;
+  final String num ;
+  personal_info(
+      {@required this.name0,
+        @required this.yepo,
+        @required this.datob,
+        @required this.num,
+        @required this.mail,
+        @required this.datoa});
+
+
   @override
   _pic_up createState() => _pic_up();
 }
@@ -32,7 +46,7 @@ class _pic_up extends State<personal_info> {
   }
   Future uploadPic(BuildContext context) async{
     String fileName = basename(imageURI.path);
-    String ab = 'email-id of the user';
+    String ab = this.widget.mail;
     String a= ab+ '--photo.jpg';
     StorageReference firebaseStorageRef = FirebaseStorage.instance.ref().child(a);
     StorageUploadTask uploadTask = firebaseStorageRef.putFile(imageURI);
@@ -146,7 +160,14 @@ class _pic_up extends State<personal_info> {
 
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal:48),
-                  child: sample1(txt: 'Next', onpresses: (){Navigator.push(context, MaterialPageRoute(builder: (context)=>Address()));}),
+                  child: sample1(txt: 'Next', onpresses: (){Navigator.push(context, MaterialPageRoute(builder: (context)=>LeaveCertificate(
+                    name0: this.widget.name0,
+                    yepo: this.widget.yepo,
+                    datob: this.widget.datob,
+                    datoa: this.widget.datoa,
+                    mail: this.widget.mail,
+                    num: this.widget.num,
+                  )));}),
                 ),
               ],
             ),

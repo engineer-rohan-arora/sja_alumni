@@ -68,8 +68,8 @@ class _ChatScreenState extends State<ChatScreen> {
                 //Implement logout functionality
               }),
         ],
-        title: Text('⚡️Q Discuss'),
-        backgroundColor: Color(0xFF812972),
+        title: Text('SJA Discussion Platform'),
+        backgroundColor: Color(0xFF555),
       ),
       body: SafeArea(
         child: Column(

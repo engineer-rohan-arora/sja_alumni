@@ -1,7 +1,22 @@
 import 'package:flutter/material.dart';
-import 'package:sja_alumni/Android_6.dart';
-import 'package:sja_alumni/frame_31.dart';
+import 'package:sja_alumni/frame_27.dart';
 class contact_details extends StatelessWidget {
+  contact_details(
+      {@required this.name0,
+        @required this.yepo,
+        @required this.datob,
+        @required this.datoa});
+
+  final String name0;
+  final String yepo;
+  final String datoa;
+  final String datob ;
+
+  final messagetextcontroller = TextEditingController();
+  final messagetextcontrolle = TextEditingController();
+
+  String mail,num;
+
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -48,6 +63,11 @@ class contact_details extends StatelessWidget {
                     child: Padding(
                       padding: const EdgeInsets.all(6.0),
                       child: TextFormField(
+                        controller: messagetextcontroller ,
+                        onChanged: (value) {
+                          num=value;
+
+                        },
                         decoration: InputDecoration(
                           labelText: 'Mobile Number',
                           labelStyle:TextStyle(color: Colors.blue,fontSize: 22),
@@ -68,6 +88,11 @@ class contact_details extends StatelessWidget {
                       child: Padding(
                         padding: const EdgeInsets.all(6.0),
                         child: TextFormField(
+                          controller: messagetextcontroller ,
+                          onChanged: (value) {
+                            mail=value;
+                            print(mail);
+                          },
                           decoration: InputDecoration(
                             labelText: 'E-mail Address',
                             labelStyle:TextStyle(color: Colors.blue,fontSize: 22),
@@ -87,7 +112,15 @@ class contact_details extends StatelessWidget {
                     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
                     child: RaisedButton(
                       onPressed: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=>LeaveCertificate()));
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=>personal_info(
+                          name0: this.name0,
+                          yepo: this.yepo,
+                          datob: this.datob,
+                          datoa: this.datoa,
+                          mail: this.mail,
+                          num:this.num,
+                        )));
+                        print(this.name0);
                       },
                       color: Colors.redAccent,
                       child: Text('Next',style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),),

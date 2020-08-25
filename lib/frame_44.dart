@@ -1,10 +1,15 @@
-
 import 'package:flutter/material.dart';
-import 'package:sja_alumni/frame_27.dart';
-import 'package:sja_alumni/frame_38.dart';
+import 'package:sja_alumni/frame_3.dart';
 
 
 class GOI extends StatelessWidget {
+  final messagetextcontroller = TextEditingController();
+  final messagetextcontrolle = TextEditingController();
+  final messagetextcontroll = TextEditingController();
+  final messagetextcontrol = TextEditingController();
+  String Name,YOP,DOB,DOA;
+
+
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -61,7 +66,13 @@ class GOI extends StatelessWidget {
                         SizedBox(
                           height: 10,
                         ),
+
                         TextFormField(
+                          controller: messagetextcontroller ,
+                          onChanged: (value) {
+                            Name=value;
+                            print(Name);
+                          },
                           decoration: InputDecoration(
                             hintText: 'xyz',
                             labelText: 'Name',
@@ -70,6 +81,11 @@ class GOI extends StatelessWidget {
                         ),
                         SizedBox(height: 10,),
                         TextFormField(
+                          controller: messagetextcontrolle ,
+                          onChanged: (value) {
+                            YOP=value;
+                            print(YOP);
+                          },
                           decoration: InputDecoration(
                             hintText: '20XX',
                             labelText: 'Year of Passout',
@@ -77,6 +93,11 @@ class GOI extends StatelessWidget {
                         ),
                         SizedBox(height: 10,),
                         TextFormField(
+                          controller: messagetextcontroll ,
+                          onChanged: (value) {
+                            DOB=value;
+                            print(DOB);
+                          },
                           decoration: InputDecoration(
                             hintText: '17/09/XXXX',
                             labelText: 'Date of Birth',
@@ -84,6 +105,11 @@ class GOI extends StatelessWidget {
                         ),
                         SizedBox(height: 10,),
                         TextFormField(
+                          controller: messagetextcontrol ,
+                          onChanged: (value) {
+                            DOA=value;
+                            print(DOA);
+                          },
                           decoration: InputDecoration(
                             hintText: '20XX',
                             labelText: 'Date of Anniversary',
@@ -116,7 +142,13 @@ class GOI extends StatelessWidget {
                               shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
                               child: RaisedButton(
                                 onPressed: (){
-                                  Navigator.push(context, MaterialPageRoute(builder: (context)=>personal_info()));
+                                  Navigator.push(context, MaterialPageRoute(builder: (context)=>contact_details(
+                                    name0: Name,
+                                    yepo: YOP,
+                                    datob: DOB,
+                                    datoa: DOA,
+
+                                  )));
                                 },
                                 color: Colors.blue,
                                 child: Text('Next',style: TextStyle(color: Colors.white),),
