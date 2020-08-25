@@ -1,3 +1,4 @@
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:sja_alumni/Frame_30.dart';
 import 'package:sja_alumni/frame_38.dart';
@@ -5,7 +6,7 @@ import 'package:sja_alumni/resources/svg_imgs.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:sja_alumni/screen/address_updt.dart';
 import 'dart:io';
-
+import 'package:path/path.dart';
 import 'package:sja_alumni/screen/main_screen.dart';
 
 // ignore: camel_case_types
@@ -24,14 +25,6 @@ class _pic_up extends State<LeaveCertificate> {
 
   File imageURI;
 
-  Future getImageFromCamera() async {
-
-    var image = await ImagePicker.pickImage(source: ImageSource.camera);
-
-    setState(() {
-      imageURI = image;
-    });
-  }
 
   Future getImageFromGallery() async {
 
@@ -39,6 +32,19 @@ class _pic_up extends State<LeaveCertificate> {
 
     setState(() {
       imageURI = image;
+    });
+  }
+
+  Future uploadPic(BuildContext context) async{
+    String fileName = basename(imageURI.path);
+    String ab = 'email-id of the user';
+    String a= ab+ '--School leaving Certificate.jpg';
+    StorageReference firebaseStorageRef = FirebaseStorage.instance.ref().child(a);
+    StorageUploadTask uploadTask = firebaseStorageRef.putFile(imageURI);
+    StorageTaskSnapshot taskSnapshot=await uploadTask.onComplete;
+    setState(() {
+      print("Profile Picture uploaded");
+      Scaffold.of(context).showSnackBar(SnackBar(content: Text('School leaving Certificate')));
     });
   }
 
@@ -118,9 +124,40 @@ class _pic_up extends State<LeaveCertificate> {
                               ]))
                   ),
                 ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: <Widget>[
+                    RaisedButton(
+                      color: Color(0xff476cfb),
+                      onPressed: () {
+                        Navigator.of(context).pop();
+                      },
+                      elevation: 4.0,
+                      splashColor: Colors.blueGrey,
+                      child: Text(
+                        'Cancel',
+                        style: TextStyle(color: Colors.white, fontSize: 16.0),
+                      ),
+                    ),
+                    RaisedButton(
+                      color: Color(0xff476cfb),
+                      onPressed: () {
+                        uploadPic(context);
+                      },
+
+                      elevation: 4.0,
+                      splashColor: Colors.blueGrey,
+                      child: Text(
+                        'Upload',
+                        style: TextStyle(color: Colors.white, fontSize: 16.0),
+                      ),
+                    ),
+
+                  ],
+                ),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal:48),
-                  child: sample1(txt: 'Upload', onpresses: (){Navigator.push(context, MaterialPageRoute(builder: (context)=>IDGOI()));}),
+                  child: sample1(txt: 'Next', onpresses: (){Navigator.push(context, MaterialPageRoute(builder: (context)=>IDGOI()));}),
                 ),
               ],
             ),
