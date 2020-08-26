@@ -1,16 +1,28 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:sja_alumni/frame_27.dart';
+final _firestore= Firestore.instance;
+
 class contact_details extends StatelessWidget {
   contact_details(
       {@required this.name0,
         @required this.yepo,
         @required this.datob,
-        @required this.datoa});
+        @required this.datoa,
+        @required this.Address_L1,
+        @required this.Address_L2,
+        @required this.pincode,
+        @required this.city
+      });
 
   final String name0;
   final String yepo;
   final String datoa;
   final String datob ;
+  final String Address_L1;
+  final String Address_L2;
+  final String pincode;
+  final String city ;
 
   final messagetextcontroller = TextEditingController();
   final messagetextcontrolle = TextEditingController();
@@ -62,7 +74,7 @@ class contact_details extends StatelessWidget {
                     elevation: 0,
                     child: Padding(
                       padding: const EdgeInsets.all(6.0),
-                      child: TextFormField(
+                      child: TextField(
                         controller: messagetextcontroller ,
                         onChanged: (value) {
                           num=value;
@@ -87,8 +99,8 @@ class contact_details extends StatelessWidget {
                       elevation: 0,
                       child: Padding(
                         padding: const EdgeInsets.all(6.0),
-                        child: TextFormField(
-                          controller: messagetextcontroller ,
+                        child: TextField(
+                          controller: messagetextcontrolle ,
                           onChanged: (value) {
                             mail=value;
                             print(mail);
@@ -111,22 +123,35 @@ class contact_details extends StatelessWidget {
                     height: 40,
                     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
                     child: RaisedButton(
-                      onPressed: (){
-                        Navigator.push(context, MaterialPageRoute(builder: (context)=>personal_info(
-                          name0: this.name0,
-                          yepo: this.yepo,
-                          datob: this.datob,
-                          datoa: this.datoa,
-                          mail: this.mail,
-                          num:this.num,
-                        )));
-                        print(this.name0);
-                      },
-                      color: Colors.redAccent,
-                      child: Text('Next',style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),),
+                      onPressed: ()
+                        async{
+                          _firestore.collection('Unregistered Users')
+                              .document('$mail')
+                              .setData
+                            ({
+                            'Name':name0,
+                            'Year Of Pass Out':yepo,
+                            'Date of Birth': datob,
+                            'date of Aniversary': datoa,
+                            'mail': mail,
+                            'number': num,
+                            'Address_L1':Address_L1,
+                            'Address_L2':Address_L2,
+                            'pincode':pincode,
+                            'city':city,
+                          });
+                          Navigator.push(context, MaterialPageRoute(builder: (context)=>personal_info(
+                            mail1: mail,
+                          )));
+                          },
+
+
+                      color: Colors.blue,
+                        child: Text('Next',style: TextStyle(color: Colors.white),),
                     ),
-                  )
-              ),
+                    ),
+                  ),
+
               SizedBox(
                 height: 10,
               ),

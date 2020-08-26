@@ -65,7 +65,7 @@ class EmailOtp extends StatelessWidget {
                     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
                     child: RaisedButton(
                       onPressed: (){
-                        Navigator.push(context, MaterialPageRoute(builder: (context)=>LeaveCertificate()));
+                        //Navigator.push(context, MaterialPageRoute(builder: (context)=>LeaveCertificate()));
                       },
                       color: Colors.redAccent,
                       child: Text('Verify',style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 20),),

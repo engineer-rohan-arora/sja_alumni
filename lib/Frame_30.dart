@@ -12,26 +12,20 @@ final _firestore= Firestore.instance;
 
 // ignore: camel_case_types
 class IDGOI extends StatefulWidget {
-  final String name0;
-  final String yepo;
-  final String datoa;
-  final String datob ;
-  final String mail ;
-  final String num ;
+  final String mail1;
   IDGOI(
-      {@required this.name0,
-        @required this.yepo,
-        @required this.datob,
-        @required this.num,
-        @required this.mail,
-        @required this.datoa});
-  static const String id = 'pic_up';
+      {@required this.mail1,});
   @override
-  _pic_up createState() => _pic_up();
+  _pic_up createState() => _pic_up(
+    mail: mail1
+  );
 }
 
 // ignore: camel_case_types
 class _pic_up extends State<IDGOI> {
+  final String mail;
+  _pic_up(
+      {@required this.mail,});
   final controller = ScrollController();
   double offset = 0;
   int currentPage = 0;
@@ -52,7 +46,7 @@ class _pic_up extends State<IDGOI> {
 
   Future uploadPic(BuildContext context) async{
     String fileName = basename(imageURI.path);
-    String ab = this.widget.mail;
+    String ab = mail;
     String a= ab+ '--ID Issued by Gov.jpg';
     StorageReference firebaseStorageRef = FirebaseStorage.instance.ref().child(a);
     StorageUploadTask uploadTask = firebaseStorageRef.putFile(imageURI);
@@ -159,7 +153,6 @@ class _pic_up extends State<IDGOI> {
                       color: Color(0xff476cfb),
                       onPressed: () {
                         uploadPic(context);
-                        print(this.widget.mail);
                       },
 
                       elevation: 4.0,
@@ -176,9 +169,9 @@ class _pic_up extends State<IDGOI> {
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal:48),
                   child: sample1(txt: 'Next', onpresses: (){
-    Navigator.push(context, MaterialPageRoute(builder: (context)=>LUK(
-    )));
-    ;})
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=>LUK(
+                  )));
+                    ;})
                 ),
               ],
             ),

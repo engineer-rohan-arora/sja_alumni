@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sja_alumni/frame_3.dart';
+import 'package:sja_alumni/frame_38.dart';
 
 
 class GOI extends StatelessWidget {
@@ -67,7 +68,7 @@ class GOI extends StatelessWidget {
                           height: 10,
                         ),
 
-                        TextFormField(
+                        TextField(
                           controller: messagetextcontroller ,
                           onChanged: (value) {
                             Name=value;
@@ -80,7 +81,7 @@ class GOI extends StatelessWidget {
                           ),
                         ),
                         SizedBox(height: 10,),
-                        TextFormField(
+                        TextField(
                           controller: messagetextcontrolle ,
                           onChanged: (value) {
                             YOP=value;
@@ -92,7 +93,7 @@ class GOI extends StatelessWidget {
                           ),
                         ),
                         SizedBox(height: 10,),
-                        TextFormField(
+                        TextField(
                           controller: messagetextcontroll ,
                           onChanged: (value) {
                             DOB=value;
@@ -104,11 +105,10 @@ class GOI extends StatelessWidget {
                           ),
                         ),
                         SizedBox(height: 10,),
-                        TextFormField(
+                        TextField(
                           controller: messagetextcontrol ,
                           onChanged: (value) {
                             DOA=value;
-                            print(DOA);
                           },
                           decoration: InputDecoration(
                             hintText: '20XX',
@@ -142,7 +142,7 @@ class GOI extends StatelessWidget {
                               shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
                               child: RaisedButton(
                                 onPressed: (){
-                                  Navigator.push(context, MaterialPageRoute(builder: (context)=>contact_details(
+                                  Navigator.push(context, MaterialPageRoute(builder: (context)=>Address(
                                     name0: Name,
                                     yepo: YOP,
                                     datob: DOB,

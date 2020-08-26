@@ -5,6 +5,21 @@ import 'package:sja_alumni/frame_3.dart';
 
 
 class Address extends StatelessWidget {
+  Address(
+      {@required this.name0,
+        @required this.yepo,
+        @required this.datob,
+        @required this.datoa});
+
+  final String name0;
+  final String yepo;
+  final String datoa;
+  final String datob ;
+  final messagetextcontroller = TextEditingController();
+  final messagetextcontrolle = TextEditingController();
+  final messagetextcontroll = TextEditingController();
+  final messagetextcontrol = TextEditingController();
+  String Address_L1,Address_L2,pincode,city;
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -46,7 +61,12 @@ class Address extends StatelessWidget {
                         SizedBox(
                           height: 5,
                         ),
-                        TextFormField(
+                        TextField(
+                          controller: messagetextcontroller ,
+                          onChanged: (value) {
+                            Address_L1=value;
+                          },
+
 //                          keyboardType: TextInputType.,
                           decoration: InputDecoration(
                             hintText: 'Line 1',
@@ -57,7 +77,10 @@ class Address extends StatelessWidget {
 //                          SizedBox(
 //                            height: 5,
 //                          ),
-                        TextFormField(
+                        TextField(controller: messagetextcontrolle ,
+                          onChanged: (value) {
+                            Address_L2=value;
+                          },
                           decoration: InputDecoration(
                             hintText: '',
                           ),
@@ -65,7 +88,11 @@ class Address extends StatelessWidget {
 //                          SizedBox(
 //                            height: 5,
 //                          ),
-                        TextFormField(
+                        TextField(
+                          controller: messagetextcontroll ,
+                          onChanged: (value) {
+                            city=value;
+                          },
                           decoration: InputDecoration(
 //                            fillColor: Colors.red.withOpacity(0.6),
 //                            filled: true,
@@ -77,7 +104,11 @@ class Address extends StatelessWidget {
 //                          SizedBox(
 //                            height: 5,
 //                          ),
-                        TextFormField(
+                        TextField(
+                          controller: messagetextcontrol ,
+                          onChanged: (value) {
+                            pincode=value;
+                          },
                           decoration: InputDecoration(
                             labelText: 'Pin Code',
                             hintText: '2452xx',
@@ -99,7 +130,17 @@ class Address extends StatelessWidget {
                   shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
                   child: RaisedButton(
                     onPressed: (){
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=>contact_details()));
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=>contact_details(
+                        name0: name0,
+                        yepo: yepo,
+                        datob: datob,
+                        datoa: datoa,
+                        Address_L1:Address_L1,
+                        Address_L2:Address_L2,
+                        pincode:pincode,
+                        city:city,
+
+                      )));
                     },
                     color: Colors.redAccent,
                     child: Text('Next',style: TextStyle(color: Colors.white),),

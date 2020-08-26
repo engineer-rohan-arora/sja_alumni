@@ -5,30 +5,25 @@ import 'package:image_picker/image_picker.dart';
 import 'dart:io';
 import 'package:path/path.dart';
 import 'package:firebase_storage/firebase_storage.dart';
+import 'frame_3.dart';
 
 // ignore: camel_case_types
 class personal_info extends StatefulWidget {
-  final String name0;
-  final String yepo;
-  final String datoa;
-  final String datob ;
-  final String mail ;
-  final String num ;
+  final String mail1;
   personal_info(
-      {@required this.name0,
-        @required this.yepo,
-        @required this.datob,
-        @required this.num,
-        @required this.mail,
-        @required this.datoa});
-
+      {@required this.mail1,});
 
   @override
-  _pic_up createState() => _pic_up();
+  _pic_up createState() => _pic_up(
+    mail: mail1,
+  );
 }
 
 // ignore: camel_case_types
 class _pic_up extends State<personal_info> {
+  final String mail;
+  _pic_up(
+  {@required this.mail,});
   final controller = ScrollController();
   double offset = 0;
   int currentPage = 0;
@@ -46,7 +41,7 @@ class _pic_up extends State<personal_info> {
   }
   Future uploadPic(BuildContext context) async{
     String fileName = basename(imageURI.path);
-    String ab = this.widget.mail;
+    String ab = mail;
     String a= ab+ '--photo.jpg';
     StorageReference firebaseStorageRef = FirebaseStorage.instance.ref().child(a);
     StorageUploadTask uploadTask = firebaseStorageRef.putFile(imageURI);
@@ -161,13 +156,9 @@ class _pic_up extends State<personal_info> {
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal:48),
                   child: sample1(txt: 'Next', onpresses: (){Navigator.push(context, MaterialPageRoute(builder: (context)=>LeaveCertificate(
-                    name0: this.widget.name0,
-                    yepo: this.widget.yepo,
-                    datob: this.widget.datob,
-                    datoa: this.widget.datoa,
-                    mail: this.widget.mail,
-                    num: this.widget.num,
-                  )));}),
+                      mail1: mail
+                  )));
+                  }),
                 ),
               ],
             ),
